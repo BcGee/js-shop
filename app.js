@@ -25,7 +25,7 @@ db.once('open', function(){
     console.log('mongodb connect');
 });
 
-var connect = mongoose.connect('mongodb://127.0.0.1:27017/fastcampus', { useMongoClient: true });
+var connect = mongoose.connect('mongodb://127.0.0.1:27017/fastcampus', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
 
 var port = 3000;
 
