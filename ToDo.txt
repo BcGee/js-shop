@@ -4,7 +4,11 @@ BannerSchema 에 들어갈 필드들: 베너 이름, 이미지파일, 베너가 
 
 
 
-routes/banners.js 만들기
+routes/banners.js 에서
+
+comment 관련 내용 삭제하기
+
+
 
 routes/admin.js 에서
 

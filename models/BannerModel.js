@@ -4,13 +4,12 @@ var { autoIncrement } = require('mongoose-plugin-autoinc');
 
 // 생성될 필드명을 정한다.
 var BannerSchema = new Schema({
-    name : { //제품명
+    name : { // 베너 이름
         type : String,
         required: [true, '제목을 입력해주세요']
     },
     thumbnail : String, //이미지 파일명
-    price : Number, // 가격
-    description : String, // 설명
+    Link : String, // 이 베너가 연결하는 링크
     created_at : { // 작성일
         type : Date,
         default : Date.now()
