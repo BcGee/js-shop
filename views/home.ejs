@@ -28,12 +28,10 @@ text-align: center
                     <img src="/uploads/<%=product.thumbnail%>">
                 <%}%>
                 <p>
-                    <%=product.title%><br />
-                    by <%=product.username%>(
-                    <%=product.getDate.year%>.
-                    <%=product.getDate.month%>.
-                    <%=product.getDate.day%>
-                    )
+                    <%=product.name%>
+                    <br>
+                    <%=product.price%>원
+
                 </p>
             </a>
         </div>
