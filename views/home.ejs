@@ -1,4 +1,15 @@
 <% include ./header.ejs %>
+
+
+<div id = "banner" >
+    <a href="/eventsite" >
+    <img src="/uploads/banner1.png" width = 1920px />
+    </a>
+</div>
+
+<br>
+
+
     <div class="container" id="masonry_container">
         <% products.forEach(function(product){ %>
         <div class="masonry-grid">
@@ -21,6 +32,9 @@
 <style type="text/css">
 .masonry-grid img { max-width: 260px; }
 </style>
+
+
+
 <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.1/imagesloaded.pkgd.min.js"></script>
 <script type="text/javascript">
