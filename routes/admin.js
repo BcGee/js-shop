@@ -164,6 +164,7 @@ router.get('/banners', paginate.middleware(5, 100), async (req,res) => { // 5개
 
 });
 
+
 router.post('/banners/write', adminRequired, upload.single('thumbnail'), csrfProtection, function(req,res){
     // console.log(req.file);
 
