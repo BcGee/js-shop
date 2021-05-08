@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var ProductsModel = require('../models/ProductsModel');
+var BannerModel = require('../models/BannerModel');
 var CommentsModel = require('../models/CommentsModel');
 var co = require('co');
 
@@ -8,7 +8,7 @@ router.get('/:id' , function(req, res){
 
     var getData = co(function* (){
         return {
-            product : yield ProductsModel.findOne( { 'id' :  req.params.id }).exec(),
+            product : yield BannerModel.findOne( { 'id' :  req.params.id }).exec(),
             comments : yield CommentsModel.find( { 'product_id' :  req.params.id }).exec()
         };
     });
