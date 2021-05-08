@@ -59,6 +59,9 @@ router.get('/products', paginate.middleware(5, 100), async (req,res) => { // 5�
 
 });
 
+
+
+
 router.get('/products/write', adminRequired, csrfProtection , function(req,res){
     //edit에서도 같은 form을 사용하므로 빈 변수( product )를 넣어서 에러를 피해준다
     res.render( 'admin/form' , { product : "", csrfToken : req.csrfToken() }); 
@@ -85,6 +88,18 @@ router.post('/products/write', adminRequired, upload.single('thumbnail'), csrfPr
         description : req.body.description,
         username : req.user.username
     });
+
+    // router.post('/products/write', function(req,res){
+    //     var product = new ProductsModel({
+    //         name : req.body.name,
+    //         price : req.body.price,
+    //         description : req.body.description,
+    //     });
+    //     product.save(function(err){
+    //         res.redirect('/admin/products');
+    //     });
+    // });
+
     // var validationError = product.validateSync();
     // if(validationError){
     //     res.send(validationError);
@@ -101,6 +116,93 @@ router.post('/products/write', adminRequired, upload.single('thumbnail'), csrfPr
         res.send('error');
     }
 });
+
+
+
+
+
+
+
+router.get('/banners/write', adminRequired, csrfProtection , function(req,res){
+    //edit에서도 같은 form을 사용하므로 빈 변수( product )를 넣어서 에러를 피해준다
+    res.render( 'admin/form' , { product : "", csrfToken : req.csrfToken() }); 
+});
+
+// router.post('/products/write', function(req,res){
+//     var product = new ProductsModel({
+//         name : req.body.name,
+//         price : req.body.price,
+//         description : req.body.description,
+//     });
+//     product.save(function(err){
+//         res.redirect('/admin/products');
+//     });
+// });
+
+
+
+
+
+
+
+
+router.get('/banners', paginate.middleware(5, 100), async (req,res) => { // 5개씩 100페이지
+
+    const [ results, itemCount ] = await Promise.all([
+        ProductsModel.find().sort('-created_at').limit(req.query.limit).skip(req.skip).exec(),
+        ProductsModel.count({})
+    ]);
+    const pageCount = Math.ceil(itemCount / req.query.limit);
+    
+    const pages = paginate.getArrayPages(req)( 10 , pageCount, req.query.page); // 10개씩 페이지 블락
+
+    res.render('admin/products', { 
+        products : results , 
+        pages: pages,
+        pageCount : pageCount,
+    });
+
+});
+
+router.post('/banners/write', adminRequired, upload.single('thumbnail'), csrfProtection, function(req,res){
+    // console.log(req.file);
+
+    var product = new ProductsModel({
+        name : req.body.name,
+        thumbnail : (req.file) ? req.file.filename : "",
+        price : req.body.price,
+        description : req.body.description,
+        username : req.user.username
+    });
+
+    // router.post('/products/write', function(req,res){
+    //     var product = new ProductsModel({
+    //         name : req.body.name,
+    //         price : req.body.price,
+    //         description : req.body.description,
+    //     });
+    //     product.save(function(err){
+    //         res.redirect('/admin/products');
+    //     });
+    // });
+
+    // var validationError = product.validateSync();
+    // if(validationError){
+    //     res.send(validationError);
+    // }else{
+    //     product.save(function(err){
+    //         res.redirect('/admin/products');
+    //     });
+    // }
+    if(!product.validateSync()){
+        product.save(function(err){
+            res.redirect('/admin/banners');
+        });
+    }else{
+        res.send('error');
+    }
+});
+
 
 // router.get('/products/detail/:id' , function(req, res){
 //     //url 에서 변수 값을 받아올떈 req.params.id 로 받아온다

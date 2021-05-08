@@ -13,6 +13,7 @@ var chat = require('./routes/chat');
 var products = require('./routes/products');
 var cart = require('./routes/cart');
 var checkout = require('./routes/checkout');
+var banner = require('./routes/banner');
 
 var app = express();
 
@@ -104,6 +105,9 @@ app.use( '/accounts', accounts );
 app.use( '/auth', auth );
 app.use( '/chat', chat );
 app.use('/products', products);
+
+app.use('/banner', banner);
+
 app.use('/uploads', express.static('uploads')); //업로드 path 추가
 app.use('/static', express.static('static')); //static path 추가
 app.use('/cart', cart);
