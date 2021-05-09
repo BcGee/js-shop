@@ -144,10 +144,6 @@ router.get('/banners/write', adminRequired, csrfProtection , function(req,res){
 
 
 
-
-
-
-
 router.get('/banners', paginate.middleware(5, 100), async (req,res) => { // 5개씩 100페이지
 
     const [ results, itemCount ] = await Promise.all([
@@ -170,7 +166,7 @@ router.get('/banners', paginate.middleware(5, 100), async (req,res) => { // 5개
 router.post('/banners/write', adminRequired, upload.single('thumbnail'), csrfProtection, function(req,res){
     // console.log(req.file);
 
-    var product = new ProductsModel({
+    var banner = new BannersModel({
         name : req.body.name,
         thumbnail : (req.file) ? req.file.filename : "",
         Link : req.body.Link,
@@ -197,8 +193,8 @@ router.post('/banners/write', adminRequired, upload.single('thumbnail'), csrfPro
     //     });
     // }
 
-    if(!product.validateSync()){
-        product.save(function(err){
+    if(!banner.validateSync()){
+        banner.save(function(err){
             res.redirect('/admin/banners');
         });
     }else{
@@ -333,6 +329,13 @@ router.post('/products/ajax_comment/delete', function(req, res){
 router.post('/products/ajax_summernote', adminRequired, upload.single('thumbnail'), function(req,res){
     res.send( '/uploads/' + req.file.filename);
 });
+
+
+router.post('/banners/ajax_summernote', adminRequired, upload.single('thumbnail'), function(req,res){
+    res.send( '/uploads/' + req.file.filename);
+});
+
+
 
 router.get('/order', function(req,res){
     CheckoutModel.find( function(err, orderList){ //첫번째 인자는 err, 두번째는 받을 변수명

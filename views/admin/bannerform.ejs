@@ -52,14 +52,13 @@ $(document).ready(function(){
         }
     });
 
-    // 이 부분 수정 필요. 이 부분에 해당하는 admin.js 에도 수정 필요
     function sendFile(file, editor, welEditable) {
         data = new FormData();
         data.append("thumbnail", file);
         $.ajax({
             data: data,
             type: "POST",
-            url: '/admin/products/ajax_summernote/',
+            url: '/admin/banners/ajax_summernote/',
             cache: false,
             contentType: false,
             processData: false,

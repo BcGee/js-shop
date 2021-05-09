@@ -17,7 +17,7 @@
                     <a><%=banner.name%></a> <!--href 로 베너 디테일과 연결 products.ejs 참고-->
                 </td>
                 <td>
-                    <%=banner.Link%>링크
+                    <%=banner.Link%>
                 </td>
                 <td>
                     <%=banner.getDate.year%>-<%=banner.getDate.month%>-<%=banner.getDate.day%>
@@ -56,8 +56,6 @@
         </nav>
 
         <a href="/admin/banners/write" class="btn btn-primary">작성</a>
-
     </div>
         
 <% include ../footer.ejs %>
-
