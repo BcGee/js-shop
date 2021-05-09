@@ -1,4 +1,4 @@
-models/BannerModel.js 만들기
+models/BannersModel.js 만들기
 
 BannerSchema 에 들어갈 필드들: 베너 이름, 이미지파일, 베너가 연결하는 링크, 올린 날짜
 

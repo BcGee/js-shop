@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var ProductsModel = require('../models/ProductsModel');
 var CommentsModel = require('../models/CommentsModel');
+var BannersModel = require('../models/BannersModel');
+
 // var loginRequired = require('../libs/loginRequired');
 var co = require('co');
 var paginate = require('express-paginate');
@@ -124,8 +126,8 @@ router.post('/products/write', adminRequired, upload.single('thumbnail'), csrfPr
 
 
 router.get('/banners/write', adminRequired, csrfProtection , function(req,res){
-    //edit에서도 같은 form을 사용하므로 빈 변수( product )를 넣어서 에러를 피해준다
-    res.render( 'admin/form' , { product : "", csrfToken : req.csrfToken() }); 
+    //edit에서도 같은 form을 사용하므로 빈 변수( banner )를 넣어서 에러를 피해준다
+    res.render( 'admin/bannerform' , { banner : "", csrfToken : req.csrfToken() }); 
 });
 
 // router.post('/products/write', function(req,res){
@@ -149,15 +151,15 @@ router.get('/banners/write', adminRequired, csrfProtection , function(req,res){
 router.get('/banners', paginate.middleware(5, 100), async (req,res) => { // 5개씩 100페이지
 
     const [ results, itemCount ] = await Promise.all([
-        ProductsModel.find().sort('-created_at').limit(req.query.limit).skip(req.skip).exec(),
-        ProductsModel.count({})
+        BannersModel.find().sort('-created_at').limit(req.query.limit).skip(req.skip).exec(),
+        BannersModel.count({})
     ]);
     const pageCount = Math.ceil(itemCount / req.query.limit);
     
     const pages = paginate.getArrayPages(req)( 10 , pageCount, req.query.page); // 10개씩 페이지 블락
 
-    res.render('admin/products', { 
-        products : results , 
+    res.render('admin/banners', { 
+        banners : results , 
         pages: pages,
         pageCount : pageCount,
     });
@@ -171,8 +173,7 @@ router.post('/banners/write', adminRequired, upload.single('thumbnail'), csrfPro
     var product = new ProductsModel({
         name : req.body.name,
         thumbnail : (req.file) ? req.file.filename : "",
-        price : req.body.price,
-        description : req.body.description,
+        Link : req.body.Link,
         username : req.user.username
     });
 
@@ -195,6 +196,7 @@ router.post('/banners/write', adminRequired, upload.single('thumbnail'), csrfPro
     //         res.redirect('/admin/products');
     //     });
     // }
+
     if(!product.validateSync()){
         product.save(function(err){
             res.redirect('/admin/banners');
@@ -299,6 +301,12 @@ router.post('/products/edit/:id', adminRequired, upload.single('thumbnail'), csr
 router.get('/products/delete/:id', function(req, res){
     ProductsModel.remove({ id : req.params.id }, function(err){
         res.redirect('/admin/products');
+    });
+});
+
+router.get('/banners/delete/:id', function(req, res){
+    BannersModel.remove({ id : req.params.id }, function(err){
+        res.redirect('/admin/banners');
     });
 });
 
