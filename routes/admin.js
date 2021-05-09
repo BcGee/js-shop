@@ -54,7 +54,7 @@ router.get('/products', paginate.middleware(5, 100), async (req,res) => { // 5�
     const pages = paginate.getArrayPages(req)( 10 , pageCount, req.query.page); // 10개씩 페이지 블락
 
     res.render('admin/products', { 
-        products : results , 
+        products : results, 
         pages: pages,
         pageCount : pageCount,
     });
@@ -155,7 +155,7 @@ router.get('/banners', paginate.middleware(5, 100), async (req,res) => { // 5개
     const pages = paginate.getArrayPages(req)( 10 , pageCount, req.query.page); // 10개씩 페이지 블락
 
     res.render('admin/banners', { 
-        banners : results , 
+        banners : results, 
         pages: pages,
         pageCount : pageCount,
     });
