@@ -1,27 +1,9 @@
-models/BannersModel.js 만들기
+TODO: 베너들을 home 에 표시하기
+베너 수정 기능은 만들지 않는다.
 
-BannerSchema 에 들어갈 필드들: 베너 이름, 이미지파일, 베너가 연결하는 링크, 올린 날짜
+상품 카테고리 기능(카테고리는 최소 3개 이상)
+home 화면 왼쪽에서 카테고리 선택시 카테고리별로 상품 보임
 
-
-
-routes/banners.js 에서
-
-comment 관련 내용 삭제하기
-
-
-
-routes/admin.js 에서
-
-get('/banners/write'
-
-get('/banners'
-
-post('/banners/write'
-
-수정하기
-
-
-
-banners.ejs 수정하기
-
-bannerform.ejs 수정하기
+주문 상태 변경 기능
+주문 상태들: 결제완료, 배송중, 배송완료, 구매확정
+관리자 화면에서 주문 상태를 수동으로 변경
