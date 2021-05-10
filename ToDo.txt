@@ -1,13 +1,32 @@
 TODO:  
+1. 상품 카테고리 기능(카테고리는 최소 3개 이상)
 
-상품 카테고리 기능(카테고리는 최소 3개 이상)
-home 화면 왼쪽에서 카테고리 선택시 카테고리별로 상품 보임
+productsmodel 에 타입 추가
+ex)
+var CategoryEnum = Object.freeze({RED: 0, GREEN: 1, BLUE: 2});
 
-주문 상태 변경 기능
-주문 상태들: 결제완료, 배송중, 배송완료, 구매확정
-관리자 화면에서 주문 상태를 수동으로 변경
+admin.js 의 products/write, /products/edit/:id 수정 
+
+admin/form.ejs 에 타입 선택하는 드롭다운 메뉴 추가.
+
+admin/products.ejs 에 이 상품이 무슨 타입인지 표시.
+
+선택사항)
+
+views/admin/productdetail 수정
+
+views/products/detail 수정
+
+
+2. home 화면 왼쪽에서 카테고리 선택시 카테고리별로 상품 보임
+
+
+
 
 
 DONE :
 베너들을 home 에 표시하기
 베너 수정 기능은 만들지 않는다
+주문 상태 변경 기능
+주문 상태들: 결제완료, 배송중, 배송완료, 구매확정
+관리자 화면에서 주문 상태를 수동으로 변경
