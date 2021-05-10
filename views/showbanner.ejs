@@ -191,30 +191,19 @@
     <div id="wrapper">
         <div id="slider-wrap">
            <ul id="slider">
+
+
+
+            <% banners.forEach( function(banner){ %>
               <li>
-                <a href="<%=banners[0].Link%>">
-    <img src="/uploads/<%=banners[0].thumbnail%>"  ></a>
-            
-            <li>
-    
-    <img src="https://fakeimg.pl/350x200/D27328/000?text=22222">
-            </li>
-            
-            <li>
-    
-    <img src="https://fakeimg.pl/350x200/FF607F/000?text=33333">
-            </li>
-            
-            <li>
-    
-    <img src="https://fakeimg.pl/350x200/0A6E0A/000?text=44444">
-            </li>
-            
-            <li>
-    
-    <img src="https://fakeimg.pl/350x200/0064CD/000?text=55555">
-            </li>
-            
+                  <a href="<%=banner.Link%>">
+                    <img src="/uploads/<%=banner.thumbnail%>"  >                    
+                  </a>
+              </li>
+
+              <%});%>
+
+                       
             
          </ul>
          
