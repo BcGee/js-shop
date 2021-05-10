@@ -26,7 +26,7 @@ db.once('open', function(){
     console.log('mongodb connect');
 });
 
-var connect = mongoose.connect('mongodb://127.0.0.1:27017/fastcampus', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
+var connect = mongoose.connect('mongodb://127.0.0.1:27017/nodejs', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true});
 
 var port = 3000;
 
@@ -52,7 +52,6 @@ app.use('/uploads', express.static('uploads'));
 
 //session 관련 셋팅
 // app.use(session({
-//     secret: 'fastcampus',
 //     resave: false,
 //     saveUninitialized: true,
 //     cookie: {
@@ -65,7 +64,7 @@ var connectMongo = require('connect-mongo');
 var MongoStore = connectMongo(session);
 
 var sessionMiddleWare = session({
-    secret: 'fastcampus',
+    secret: 'nodejs',
     resave: false,
     saveUninitialized: true,
     cookie: {
