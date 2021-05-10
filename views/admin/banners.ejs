@@ -14,10 +14,10 @@
             <% banners.forEach( function(banner){ %>
             <tr>
                 <td>
-                    <a><%=banner.name%></a> <!--href 로 베너 디테일과 연결 products.ejs 참고-->
+                    <%=banner.name%> <!--href 로 베너 디테일과 연결 products.ejs 참고-->
                 </td>
                 <td>
-                    <%=banner.Link%>
+                    <a href="<%=banner.Link%>"><%=banner.Link%></a>
                 </td>
                 <td>
                     <%=banner.getDate.year%>-<%=banner.getDate.month%>-<%=banner.getDate.day%>
