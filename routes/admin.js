@@ -26,7 +26,7 @@ var storage = multer.diskStorage({
         callback(null, uploadDir );
     },
     filename : function (req, file, callback) { // products-날짜.jpg(png) 저장 
-        callback(null, 'products-' + Date.now() + '.'+ file.mimetype.split('/')[1] );
+        callback(null, 'images-' + Date.now() + '.'+ file.mimetype.split('/')[1] );
     }
 });
 var upload = multer({ storage : storage });

@@ -1,24 +1,5 @@
 <% include ./header.ejs %>
-
-<style>
-
-#banner{
-width: 100%;
-height: auto;
-text-align: center
-}
-
-</style>
-
-<div>
-    <% banners.forEach(function(banner){ %>
-    <!-- 여기서 이미지를 불러오려면 banner.thumbnail 을 사용하자. -->
-    <!-- 등록한 베너가 없으면 아무 이미지도 표시되지 않음. -->
-    <a href="/eventsite" >
-    <img id ="banner" src="/uploads/banner1.png" />
-    </a>
-    <%});%>
-</div>
+<% include ./banner.ejs %>
 
 <br>
 
