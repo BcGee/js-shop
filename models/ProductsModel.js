@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var { autoIncrement } = require('mongoose-plugin-autoinc');
 
+
 // 생성될 필드명을 정한다.
 var ProductsSchema = new Schema({
     name : { //제품명
@@ -9,6 +10,7 @@ var ProductsSchema = new Schema({
         required: [true, '제목을 입력해주세요']
     },
     thumbnail : String, //이미지 파일명
+    category : Number,
     price : Number, // 가격
     description : String, // 설명
     created_at : { // 작성일

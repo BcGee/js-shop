@@ -86,6 +86,7 @@ router.post('/products/write', adminRequired, upload.single('thumbnail'), csrfPr
     var product = new ProductsModel({
         name : req.body.name,
         thumbnail : (req.file) ? req.file.filename : "",
+        category : req.body.category,
         price : req.body.price,
         description : req.body.description,
         username : req.user.username
@@ -239,7 +240,7 @@ router.post('/banners/write', adminRequired, upload.single('thumbnail'), csrfPro
 //             comments : await CommentsModel.find( { 'product_id' :  req.params.id }).exec()
 //         };
 //     };
-//     getData().then( function(result){
+//     getData().then( function(result){products/write
 //         res.render('admin/productsDetail', { product: result.product , comments : result.comments });
 //     }); 
 // });
@@ -274,6 +275,7 @@ router.post('/products/edit/:id', adminRequired, upload.single('thumbnail'), csr
         var query = {
             name : req.body.name,
             thumbnail : (req.file) ? req.file.filename : product.thumbnail,
+            category : req.body.category,
             price : req.body.price,
             description : req.body.description,
         };

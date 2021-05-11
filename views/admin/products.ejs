@@ -6,15 +6,19 @@
         <table class="table table-bordered table-hover">
             <tr>
                 <th>제목</th>
+                <th>카테고리</th>
                 <th>가격</th>
                 <th>작성일</th>
                 <th>작성일</th>
                 <th>삭제</th>
             </tr>
-            <% products.forEach( function(product){ %>
+            <% products.forEach(function(product){ %>
             <tr>
                 <td>
                     <a href="/admin/products/detail/<%=product.id%>"><%=product.name%></a>
+                </td>
+                <td>
+                    <%=product.category%>
                 </td>
                 <td>
                     <%=product.price%>원
