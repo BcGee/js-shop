@@ -18,9 +18,20 @@
                     <img src="/uploads/<%=product.thumbnail%>" style="max-width: 100%"/>
                 </div>
                 <% } %>
+
                 <div>
-                    카테고리: <%=product.category%>
+                    카테고리: 
+                    <% if(product.category == 1){ %>
+                        RED
+                    <% } %>
+                    <% if(product.category == 2){ %>
+                        GREEN
+                    <% } %>
+                    <% if(product.category == 3){ %>
+                        BLUE
+                    <% } %>
                 </div>
+
                 <div>
                     가격 : <%=product.price%>원
                 </div>

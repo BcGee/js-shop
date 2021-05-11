@@ -1,13 +1,6 @@
 TODO:  
 
-선택사항)
-
-views/admin/productdetail 에서 상품의 카테고리가 보이도록 수정
-
-views/products/detail 에서 상품의 카테고리가 보이도록 수정
-
-
-2. home 화면 왼쪽에서 카테고리 선택시 카테고리별로 상품 보임
+1. home 화면 왼쪽에서 카테고리 선택시 카테고리별로 상품이 보이도록 만들자
 
 
 
