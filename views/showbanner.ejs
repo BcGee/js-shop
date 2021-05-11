@@ -16,17 +16,20 @@
 
     
     #wrapper {
-      width: 600px;
+
+
+      width: 1000px;
+      height: auto;
+
       margin: 50px auto;
-      height: 400px;
+
       position: relative;
       color: #fff;
       text-shadow: rgba(0, 0, 0, 0.1) 2px 2px 0px;
     }
     
     #slider-wrap {
-      width: 600px;
-      height: 400px;
+
       position: relative;
       overflow: hidden;
     }
@@ -43,8 +46,7 @@
     #slider-wrap ul#slider li {
       float: left;
       position: relative;
-      width: 600px;
-      height: 400px;
+
     }
     
     #slider-wrap ul#slider li > div {
@@ -66,7 +68,7 @@
     #slider-wrap ul#slider li img {
       display: block;
       width: 100%;
-      height: 100%;
+      height: auto;
     }
     
     /*btns*/
@@ -82,10 +84,7 @@
       background: rgba(0, 0, 0, 0.1);
       z-index: 100;
     
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -khtml-user-select: none;
-      -ms-user-select: none;
+
     
       -webkit-transition: all 0.1s ease;
       -moz-transition: all 0.1s ease;
@@ -197,7 +196,7 @@
             <% banners.forEach( function(banner){ %>
               <li>
                   <a href="<%=banner.Link%>">
-                    <img src="/uploads/<%=banner.thumbnail%>"  >                    
+                    <img src="/uploads/<%=banner.thumbnail%>" >                    
                   </a>
               </li>
 
