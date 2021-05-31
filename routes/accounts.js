@@ -48,9 +48,18 @@ router.post('/join', function(req, res){
         password : passwordHash(req.body.password),
         displayname : req.body.displayname
     });
-    User.save(function(err){
-        res.send('<script>alert("회원가입 성공");location.href="/accounts/login";</script>');
+
+
+    UserModel.findOne({ username : User.username}, function (err,user) {
+        if (user){
+            res.send('<script>alert("중복된 아이디는 사용할 수 없습니다");location.href="/accounts/join";</script>');
+        }else{
+            User.save(function(err){
+                res.send('<script>alert("회원가입 성공");location.href="/accounts/login";</script>');
+            });
+        }
     });
+
 });
 
 router.get('/login', function(req, res){
