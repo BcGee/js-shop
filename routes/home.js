@@ -25,7 +25,7 @@ router.get('/', function(req,res){
 
 
             res.render( 'home' , 
-                {  products : products,
+                { products : products,
                     banners: banners 
                     
                 } // DB에서 받은 products를 products변수명으로 내보냄
@@ -42,7 +42,7 @@ router.get('/red', function(req,res){
         ProductsModel.find({category : 1},function(err,products){
 
             res.render( 'home' , 
-                {  products : products,
+                { products : products,
                     banners: banners 
                     
                 } // DB에서 받은 products를 products변수명으로 내보냄
@@ -59,7 +59,7 @@ router.get('/green', function(req,res){
         ProductsModel.find({category : 2},function(err,products){
 
             res.render( 'home' , 
-                {  products : products,
+                { products : products,
                     banners: banners 
                     
                 } // DB에서 받은 products를 products변수명으로 내보냄
@@ -76,7 +76,7 @@ router.get('/blue', function(req,res){
         ProductsModel.find({category : 3},function(err,products){
 
             res.render( 'home' , 
-                {  products : products,
+                { products : products,
                     banners: banners 
                     
                 } // DB에서 받은 products를 products변수명으로 내보냄
