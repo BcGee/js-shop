@@ -5,9 +5,7 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var admin = require('./routes/admin');
-var contacts = require('./routes/contacts');
 var accounts = require('./routes/accounts');
-var auth = require('./routes/auth');
 var home = require('./routes/home');
 var chat = require('./routes/chat');
 var products = require('./routes/products');
@@ -99,9 +97,7 @@ app.use(function(req, res, next) {
 
 app.use( '/', home );
 app.use( '/admin', admin );
-app.use( '/contacts', contacts );
 app.use( '/accounts', accounts );
-app.use( '/auth', auth );
 app.use( '/chat', chat );
 app.use('/products', products);
 

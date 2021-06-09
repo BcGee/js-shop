@@ -1,13 +1,3 @@
-// module.exports = function(io){
-//     io.on('connection', function(socket){
-//         console.log('채팅 접속 시작');
-//         socket.on('client message', function(data){
-//             console.log(data);
-//             io.emit('server message', data.message);
-//         });
-//     });
-// }
-
 require('./removeByValue')();
 
 module.exports = function(io) {
