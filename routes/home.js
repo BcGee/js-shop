@@ -36,7 +36,7 @@ router.get('/', function(req,res){
 });
 
 
-router.get('/red', function(req,res){
+router.get('/food', function(req,res){
     
     BannersModel.find( function(err,banners){ //첫번째 인자는 err, 두번째는 받을 변수명
         ProductsModel.find({category : 1},function(err,products){
@@ -53,7 +53,7 @@ router.get('/red', function(req,res){
 });
 
 
-router.get('/green', function(req,res){
+router.get('/device', function(req,res){
     
     BannersModel.find( function(err,banners){ //첫번째 인자는 err, 두번째는 받을 변수명
         ProductsModel.find({category : 2},function(err,products){
@@ -70,7 +70,7 @@ router.get('/green', function(req,res){
 });
 
 
-router.get('/blue', function(req,res){
+router.get('/cloth', function(req,res){
     
     BannersModel.find( function(err,banners){ //첫번째 인자는 err, 두번째는 받을 변수명
         ProductsModel.find({category : 3},function(err,products){
